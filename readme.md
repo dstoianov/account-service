@@ -1,9 +1,25 @@
-# Getting Started
+# Account service. Coding challenge
 
-### Reference Documentation
-For further reference, please consider the following sections:
+Bank Account Toy - task
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.5.6/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.5.6/maven-plugin/reference/html/#build-image)
+## Description
+
+Some of the things were made by me based on assumptions. We can discuss everything.
+
+#### How to test?
+
+1. start the app
+2. open in the browser http://localhost:8080/doc
+3. create few accounts, deposit them and start explore other endpoints
+
+### Points to improve
+
+1. add security to the project
+2. add Spring Data JPA Auditing
+3. Add more logging
+4. increase test coverage
+5. improve/refactor returned objects/DTOs
+6. improve swagger documentation
+
+
 
