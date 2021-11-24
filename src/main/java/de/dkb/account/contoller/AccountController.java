@@ -49,15 +49,15 @@ public class AccountController {
     }
 
     @Operation(summary = "Lock Account")
-    @PostMapping(value = "/lock", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Map lockAccount(@Valid @RequestBody LockUnlockDto payload) {
-        return accountService.lockUnlockAccount(AccountState.LOCKED, payload);
+    @PostMapping(value = "/{iban}/lock", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map lockAccount(@Valid @PathVariable("iban") String iban, @RequestBody LockUnlockDto payload) {
+        return accountService.lockUnlockAccount(iban, AccountState.LOCKED, payload);
     }
 
     @Operation(summary = "Unlock Account")
-    @PostMapping(value = "/unlock", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Map unlockAccount(@Valid @RequestBody LockUnlockDto payload) {
-        return accountService.lockUnlockAccount(AccountState.ACTIVE, payload);
+    @DeleteMapping(value = "/{iban}/lock", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map unlockAccount(@Valid @PathVariable("iban") String iban, @RequestBody LockUnlockDto payload) {
+        return accountService.lockUnlockAccount(iban, AccountState.ACTIVE, payload);
     }
 
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)

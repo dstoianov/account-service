@@ -12,7 +12,7 @@ Some of the things were made based on assumptions. We can discuss everything.
 
 #### How to test?
 
-1. start the app `./mvnw spring-boot:run`
+1. start the app `./mvnw spring-boot:run -Dspring-boot.run.profiles=local`
 2. open in the browser http://localhost:8080/doc
 3. create few accounts, deposit them and start explore other endpoints
 

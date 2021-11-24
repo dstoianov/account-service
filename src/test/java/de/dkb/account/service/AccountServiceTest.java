@@ -39,11 +39,10 @@ class AccountServiceTest {
         Account account = createAccountWithType(AccountType.CHECKING);
 
         LockUnlockDto payload = new LockUnlockDto();
-        payload.setIban(account.getIban());
         payload.setReasonMessage("fraud detected");
 
 // act
-        Map<String, ?> map = accountService.lockUnlockAccount(AccountState.LOCKED, payload);
+        Map<String, ?> map = accountService.lockUnlockAccount(account.getIban(), AccountState.LOCKED, payload);
 
 // validation
         assertThat(map.get("state"), is(AccountState.LOCKED));

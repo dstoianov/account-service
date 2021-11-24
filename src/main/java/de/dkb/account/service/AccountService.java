@@ -36,9 +36,9 @@ public class AccountService {
         return accountRepository.save(newAccount);
     }
 
-    public Map lockUnlockAccount(AccountState state, LockUnlockDto payload) {
-        log.info("Set state '{}' for for accountToModify with iban '{}' and reason '{}'", state, payload.getIban(), payload.getReasonMessage());
-        Account accountToModify = paymentsService.findByIban(payload.getIban());
+    public Map lockUnlockAccount(String iban, AccountState state, LockUnlockDto payload) {
+        log.info("Set state '{}' for for accountToModify with iban '{}' and reason '{}'", state, iban, payload.getReasonMessage());
+        Account accountToModify = paymentsService.findByIban(iban);
 
         accountToModify.setState(state);
         accountToModify.setStateInfo(payload.getReasonMessage());
